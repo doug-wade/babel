@@ -1,0 +1,1 @@
+error: babel-plugin-transform-react-jsx is included in babel-preset-react with the same configuration.
