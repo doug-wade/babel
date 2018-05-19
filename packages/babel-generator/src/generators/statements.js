@@ -299,3 +299,18 @@ export function VariableDeclarator(node: Object) {
     this.print(node.init, node);
   }
 }
+
+export function EnumDeclaration(node: Object) {
+  this.word("enum");
+  this.print(node.id, node);
+  this.space();
+  this.token("{");
+  this.space();
+  this.printList(node.members);
+  this.space();
+  this.token("}");
+}
+
+export function EnumMember(node: Object) {
+  this.print(node.id, node);
+}

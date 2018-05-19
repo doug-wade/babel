@@ -190,6 +190,7 @@ export const keywords = {
   typeof: new KeywordTokenType("typeof", { beforeExpr, prefix, startsExpr }),
   void: new KeywordTokenType("void", { beforeExpr, prefix, startsExpr }),
   delete: new KeywordTokenType("delete", { beforeExpr, prefix, startsExpr }),
+  enum: new KeywordTokenType("enum"),
 };
 
 // Map keyword names to token types.

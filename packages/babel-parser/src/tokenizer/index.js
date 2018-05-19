@@ -1303,7 +1303,12 @@ export default class Tokenizer extends LocationParser {
     const word = this.readWord1();
     let type = tt.name;
 
-    if (this.isKeyword(word)) {
+    // I'm not sure if isKeyword should return true for enum while a proposal,
+    // given that its a reserved keyword.
+    if (
+      this.isKeyword(word) ||
+      (this.plugins.enum && word === tt._enum.keyword)
+    ) {
       if (this.state.containsEsc) {
         this.raise(this.state.pos, `Escape sequence in keyword ${word}`);
       }

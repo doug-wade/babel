@@ -896,6 +896,10 @@ export default class ExpressionParser extends LValParser {
         }
       }
 
+      case tt._enum:
+        node = this.startNode();
+        return this.parseEnumDeclaration(node);
+
       default:
         throw this.unexpected();
     }
@@ -1876,7 +1880,9 @@ export default class ExpressionParser extends LValParser {
     }
 
     if (this.isReservedWord(word) || (checkKeywords && this.isKeyword(word))) {
-      this.raise(startLoc, word + " is a reserved word");
+      if (!(this.plugins.enum && word === "enum")) {
+        this.raise(startLoc, word + " is a reserved word");
+      }
     }
   }
 
@@ -1930,5 +1936,30 @@ export default class ExpressionParser extends LValParser {
       node.argument = this.parseMaybeAssign();
     }
     return this.finishNode(node, "YieldExpression");
+  }
+
+  parseEnumMember(): N.EnumMember {
+    const node: N.EnumMember = this.startNode();
+    // TODO: Computed property names
+    node.id = this.match(tt.string)
+      ? this.parseLiteral(this.state.value, "StringLiteral")
+      : this.parseIdentifier(/* liberal */ true);
+    if (this.eat(tt.eq)) {
+      node.initializer = this.parseMaybeAssign();
+    }
+    return this.finishNode(node, "EnumMember");
+  }
+
+  parseEnumDeclaration(node: N.EnumDeclaration): N.EnumDeclaration {
+    this.eat(tt._enum);
+
+    if (this.state.type.label === "name") {
+      node.id = this.parseIdentifier();
+    }
+
+    this.expect(tt.braceL);
+    node.members = this.parseEnumMemberList();
+    this.expect(tt.braceR);
+    return this.finishNode(node, "EnumDeclaration");
   }
 }

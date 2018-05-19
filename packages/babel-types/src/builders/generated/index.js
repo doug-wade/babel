@@ -640,6 +640,14 @@ export function PrivateName(...args: Array<any>): Object {
   return builder("PrivateName", ...args);
 }
 export { PrivateName as privateName };
+export function EnumDeclaration(...args: Array<any>): Object {
+  return builder("EnumDeclaration", ...args);
+}
+export { EnumDeclaration as enumDeclaration };
+export function EnumMember(...args: Array<any>): Object {
+  return builder("EnumMember", ...args);
+}
+export { EnumMember as enumMember };
 export function TSParameterProperty(...args: Array<any>): Object {
   return builder("TSParameterProperty", ...args);
 }

@@ -1,0 +1,197 @@
+{
+    "type": "File",
+    "start": 0,
+    "end": 60,
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0
+        },
+        "end": {
+            "line": 5,
+            "column": 2
+        }
+    },
+    "program": {
+        "type": "Program",
+        "start": 0,
+        "end": 60,
+        "loc": {
+            "start": {
+                "line": 1,
+                "column": 0
+            },
+            "end": {
+                "line": 5,
+                "column": 2
+            }
+        },
+        "sourceType": "script",
+        "body": [
+            {
+                "type": "VariableDeclaration",
+                "start": 0,
+                "end": 60,
+                "loc": {
+                    "start": {
+                        "line": 1,
+                        "column": 0
+                    },
+                    "end": {
+                        "line": 5,
+                        "column": 2
+                    }
+                },
+                "declarations": [
+                    {
+                        "type": "VariableDeclarator",
+                        "start": 6,
+                        "end": 59,
+                        "loc": {
+                            "start": {
+                                "line": 1,
+                                "column": 6
+                            },
+                            "end": {
+                                "line": 5,
+                                "column": 1
+                            }
+                        },
+                        "id": {
+                            "type": "Identifier",
+                            "start": 6,
+                            "end": 28,
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 6
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "column": 28
+                                },
+                                "identifierName": "MetasyntacticVariables"
+                            },
+                            "name": "MetasyntacticVariables"
+                        },
+                        "init": {
+                            "type": "EnumDeclaration",
+                            "start": 31,
+                            "end": 59,
+                            "loc": {
+                                "start": {
+                                    "line": 1,
+                                    "column": 31
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "column": 1
+                                }
+                            },
+                            "members": [
+                                {
+                                    "type": "EnumMember",
+                                    "start": 40,
+                                    "end": 43,
+                                    "loc": {
+                                        "start": {
+                                            "line": 2,
+                                            "column": 2
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "column": 5
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "Identifier",
+                                        "start": 40,
+                                        "end": 43,
+                                        "loc": {
+                                            "start": {
+                                                "line": 2,
+                                                "column": 2
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "column": 5
+                                            },
+                                            "identifierName": "FOO"
+                                        },
+                                        "name": "FOO"
+                                    }
+                                },
+                                {
+                                    "type": "EnumMember",
+                                    "start": 47,
+                                    "end": 50,
+                                    "loc": {
+                                        "start": {
+                                            "line": 3,
+                                            "column": 2
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "column": 5
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "Identifier",
+                                        "start": 47,
+                                        "end": 50,
+                                        "loc": {
+                                            "start": {
+                                                "line": 3,
+                                                "column": 2
+                                            },
+                                            "end": {
+                                                "line": 3,
+                                                "column": 5
+                                            },
+                                            "identifierName": "BAR"
+                                        },
+                                        "name": "BAR"
+                                    }
+                                },
+                                {
+                                    "type": "EnumMember",
+                                    "start": 54,
+                                    "end": 57,
+                                    "loc": {
+                                        "start": {
+                                            "line": 4,
+                                            "column": 2
+                                        },
+                                        "end": {
+                                            "line": 4,
+                                            "column": 5
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "Identifier",
+                                        "start": 54,
+                                        "end": 57,
+                                        "loc": {
+                                            "start": {
+                                                "line": 4,
+                                                "column": 2
+                                            },
+                                            "end": {
+                                                "line": 4,
+                                                "column": 5
+                                            },
+                                            "identifierName": "BAZ"
+                                        },
+                                        "name": "BAZ"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "kind": "const"
+            }
+        ],
+        "directives": []
+    }
+}

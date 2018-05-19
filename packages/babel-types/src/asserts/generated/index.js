@@ -705,6 +705,12 @@ export function assertExportNamespaceSpecifier(
 export function assertPrivateName(node: Object, opts?: Object = {}): void {
   assert("PrivateName", node, opts);
 }
+export function assertEnumDeclaration(node: Object, opts?: Object = {}): void {
+  assert("EnumDeclaration", node, opts);
+}
+export function assertEnumMember(node: Object, opts?: Object = {}): void {
+  assert("EnumMember", node, opts);
+}
 export function assertTSParameterProperty(
   node: Object,
   opts?: Object = {},

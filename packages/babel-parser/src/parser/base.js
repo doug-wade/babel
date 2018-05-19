@@ -20,6 +20,8 @@ export default class BaseParser {
   isReservedWord(word: string): boolean {
     if (word === "await") {
       return this.inModule;
+    } else if (this.plugins.enum && word === "enum") {
+      return false;
     } else {
       return reservedWords[6](word);
     }

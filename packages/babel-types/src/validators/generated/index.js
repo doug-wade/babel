@@ -2232,6 +2232,34 @@ export function isPrivateName(node: Object, opts?: Object): boolean {
 
   return false;
 }
+export function isEnumDeclaration(node: Object, opts?: Object): boolean {
+  if (!node) return false;
+
+  const nodeType = node.type;
+  if (nodeType === "EnumDeclaration") {
+    if (typeof opts === "undefined") {
+      return true;
+    } else {
+      return shallowEqual(node, opts);
+    }
+  }
+
+  return false;
+}
+export function isEnumMember(node: Object, opts?: Object): boolean {
+  if (!node) return false;
+
+  const nodeType = node.type;
+  if (nodeType === "EnumMember") {
+    if (typeof opts === "undefined") {
+      return true;
+    } else {
+      return shallowEqual(node, opts);
+    }
+  }
+
+  return false;
+}
 export function isTSParameterProperty(node: Object, opts?: Object): boolean {
   if (!node) return false;
 

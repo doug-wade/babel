@@ -169,6 +169,8 @@ export default class StatementParser extends ExpressionParser {
 
         return result;
       }
+      case tt._enum:
+        return this.parseEnumDeclaration(node);
       case tt.name:
         if (this.isContextual("async")) {
           // peek ahead and see if next token is a function
@@ -1781,5 +1783,60 @@ export default class StatementParser extends ExpressionParser {
     }
     this.checkLVal(specifier.local, true, undefined, "import specifier");
     node.specifiers.push(this.finishNode(specifier, "ImportSpecifier"));
+  }
+
+  parseEnumMemberList(): N.EnumMember[] {
+    const result = [];
+
+    while (true) {
+      if (this.match(tt.braceR)) {
+        break;
+      }
+
+      const element = this.parseEnumMember();
+      if (element == null) {
+        return undefined;
+      }
+      result.push(element);
+
+      if (this.eat(tt.comma)) {
+        continue;
+      }
+
+      if (this.match(tt.braceR)) {
+        break;
+      }
+
+      this.expect(tt.comma);
+
+      return undefined;
+    }
+
+    return result;
+  }
+
+  parseEnumMember(): N.EnumMember {
+    const node: N.EnumMember = this.startNode();
+    // TODO: Computed property names
+    node.id = this.match(tt.string)
+      ? this.parseLiteral(this.state.value, "StringLiteral")
+      : this.parseIdentifier(/* liberal */ true);
+    if (this.eat(tt.eq)) {
+      node.initializer = this.parseMaybeAssign();
+    }
+    return this.finishNode(node, "EnumMember");
+  }
+
+  parseEnumDeclaration(node: N.EnumDeclaration): N.EnumDeclaration {
+    this.eat(tt._enum);
+
+    if (this.state.type.label === "name") {
+      node.id = this.parseIdentifier();
+    }
+
+    this.expect(tt.braceL);
+    node.members = this.parseEnumMemberList();
+    this.expect(tt.braceR);
+    return this.finishNode(node, "EnumDeclaration");
   }
 }

@@ -670,6 +670,29 @@ Aliases: `Flow`, `FlowType`, `FlowBaseAnnotation`
 
 ---
 
+### enumDeclaration
+```javascript
+t.enumDeclaration(members, id)
+```
+
+See also `t.isEnumDeclaration(node, opts)` and `t.assertEnumDeclaration(node, opts)`.
+
+ - `members`: `Array<EnumMember>` (required)
+ - `id`: `Identifier` (required)
+
+---
+
+### enumMember
+```javascript
+t.enumMember(id)
+```
+
+See also `t.isEnumMember(node, opts)` and `t.assertEnumMember(node, opts)`.
+
+ - `id`: `Identifier` (required)
+
+---
+
 ### existsTypeAnnotation
 ```javascript
 t.existsTypeAnnotation()

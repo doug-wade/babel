@@ -190,3 +190,24 @@ defineType("PrivateName", {
     },
   },
 });
+
+defineType("EnumDeclaration", {
+  builder: ["members", "id"],
+  fields: {
+    id: {
+      validate: assertNodeType("Identifier"),
+    },
+    members: {
+      validate: assertEach(assertNodeType("EnumMember")),
+    },
+  },
+});
+
+defineType("EnumMember", {
+  builder: ["id"],
+  fields: {
+    id: {
+      validate: assertNodeType("Identifier"),
+    },
+  },
+});
